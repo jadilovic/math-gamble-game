@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/managerTask")
-public class ManagerTaskServlet extends HttpServlet {
+@WebServlet("/registeredTask")
+public class RegisteredTaskServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
  
-   public ManagerTaskServlet() {
+   public RegisteredTaskServlet() {
       super();
    }
  
@@ -23,7 +23,7 @@ public class ManagerTaskServlet extends HttpServlet {
  
       RequestDispatcher dispatcher //
             = this.getServletContext()//
-                  .getRequestDispatcher("/WEB-INF/views/managerTaskView.jsp");
+                  .getRequestDispatcher("/WEB-INF/views/registeredTaskView.jsp");
  
       dispatcher.forward(request, response);
    }

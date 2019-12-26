@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class UserAccount {
 
 	   public static final String GENDER_MALE = "M";
@@ -11,24 +8,20 @@ public class UserAccount {
 	   private String userName;
 	   private String gender;
 	   private String password;
-	 
-	   private List<String> roles;
+	   private String role;
+	   private int points;
 	 
 	   public UserAccount() {
 	 
 	   }
 	 
-	   public UserAccount(String userName, String password, String gender, String... roles) {
+	   public UserAccount(String userName, String password, String gender, String role, int points) {
 	      this.userName = userName;
 	      this.password = password;
 	      this.gender = gender;
-	 
-	      this.roles = new ArrayList<String>();
-	      if (roles != null) {
-	         for (String r : roles) {
-	            this.roles.add(r);
-	         }
-	      }
+	      this.role = role;
+	      this.points = points;
+
 	   }
 	 
 	   public String getUserName() {
@@ -54,12 +47,20 @@ public class UserAccount {
 	   public void setPassword(String password) {
 	      this.password = password;
 	   }
-	 
-	   public List<String> getRoles() {
-	      return roles;
+	   
+	   public String getRole() {
+		return role;
 	   }
-	 
-	   public void setRoles(List<String> roles) {
-	      this.roles = roles;
-	   }
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
 }

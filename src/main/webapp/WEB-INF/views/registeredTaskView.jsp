@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Employee</title>
+<title>Registered User</title>
 </head>
 <body>
+    
       <jsp:include page="_menu.jsp"></jsp:include>
        
-      <h3>Employee Task</h3>
+      <h3>Registered User Task</h3>
        
-      Hello, This is a protected page!
+     <h5>Hello, This is a protected page for Registered User</h5> 
+       
 </body>
 </html>

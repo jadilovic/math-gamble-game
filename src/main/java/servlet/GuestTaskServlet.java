@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/employeeTask")
-public class EmployeeTaskServlet extends HttpServlet {
+@WebServlet("/guestTask")
+public class GuestTaskServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
  
-   public EmployeeTaskServlet() {
+   public GuestTaskServlet() {
       super();
    }
  
@@ -23,7 +23,7 @@ public class EmployeeTaskServlet extends HttpServlet {
  
       RequestDispatcher dispatcher //
             = this.getServletContext()//
-                  .getRequestDispatcher("/WEB-INF/views/employeeTaskView.jsp");
+                  .getRequestDispatcher("/WEB-INF/views/guestTaskView.jsp");
  
       dispatcher.forward(request, response);
    }

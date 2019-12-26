@@ -17,15 +17,15 @@ public class DataDAO {
 	 
 	   private static void initUsers() {
 	 
-	      // This user has a role as EMPLOYEE.
-	      UserAccount emp = new UserAccount("employee1", "123", UserAccount.GENDER_MALE, SecurityConfig.ROLE_EMPLOYEE);
+	      // This user has a role as GUEST.
+	      UserAccount guest = new UserAccount("guest", "123", UserAccount.GENDER_MALE, SecurityConfig.ROLE_GUEST_USER, 0);
 	 
-	      // This user has 2 roles EMPLOYEE and MANAGER.
-	      UserAccount mng = new UserAccount("manager1", "123", UserAccount.GENDER_MALE, //
-	            SecurityConfig.ROLE_EMPLOYEE, SecurityConfig.ROLE_MANAGER);
+	      // This user has a role as REGISTERED USER.
+	      UserAccount registered = new UserAccount("registered", "123", UserAccount.GENDER_MALE, //
+	            SecurityConfig.ROLE_REGISTERED_USER, 0);
 	 
-	      mapUsers.put(emp.getUserName(), emp);
-	      mapUsers.put(mng.getUserName(), mng);
+	      mapUsers.put(guest.getUserName(), guest);
+	      mapUsers.put(registered.getUserName(), registered);
 	   }
 	 
 	   // Find a User by userName and password.

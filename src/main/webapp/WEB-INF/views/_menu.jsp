@@ -7,12 +7,12 @@
 <title>Menu</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/employeeTask">
-  Employee Task
+<a href="${pageContext.request.contextPath}/guestTask">
+  Guest Task
 </a>
 ||
-<a href="${pageContext.request.contextPath}/managerTask">
-  Manager Task
+<a href="${pageContext.request.contextPath}/registeredTask">
+  Registered User Task
 </a>
 ||
 <a href="${pageContext.request.contextPath}/userInfo">
@@ -21,6 +21,10 @@
 ||
 <a href="${pageContext.request.contextPath}/login">
   Login
+</a>
+||
+<a href="${pageContext.request.contextPath}/signUp">
+  Sign up
 </a>
 ||
 <a href="${pageContext.request.contextPath}/logout">

@@ -8,8 +8,8 @@ import java.util.Set;
 
 public class SecurityConfig {
 
-	public static final String ROLE_MANAGER = "MANAGER";
-    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
+	public static final String ROLE_REGISTERED_USER = "REGISTERED";
+    public static final String ROLE_GUEST_USER = "GUEST";
  
     // String: Role
     // List<String>: urlPatterns.
@@ -21,21 +21,18 @@ public class SecurityConfig {
  
     private static void init() {
  
-        // Configure For "EMPLOYEE" Role.
+        // Configure For "GUEST" Role.
         List<String> urlPatterns1 = new ArrayList<String>();
- 
         urlPatterns1.add("/userInfo");
-        urlPatterns1.add("/employeeTask");
+        urlPatterns1.add("/guestTask");
+        mapConfig.put(ROLE_GUEST_USER, urlPatterns1);
  
-        mapConfig.put(ROLE_EMPLOYEE, urlPatterns1);
- 
-        // Configure For "MANAGER" Role.
+        // Configure For "REGISTERED" Role.
         List<String> urlPatterns2 = new ArrayList<String>();
- 
         urlPatterns2.add("/userInfo");
-        urlPatterns2.add("/managerTask");
- 
-        mapConfig.put(ROLE_MANAGER, urlPatterns2);
+        urlPatterns2.add("/registeredTask");
+        urlPatterns2.add("/guestTask");
+        mapConfig.put(ROLE_REGISTERED_USER, urlPatterns2);
     }
  
     public static Set<String> getAllAppRoles() {

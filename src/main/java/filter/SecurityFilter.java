@@ -50,10 +50,10 @@ public class SecurityFilter implements Filter {
             String userName = loginedUser.getUserName();
  
             // Roles
-            List<String> roles = loginedUser.getRoles();
+            String role = loginedUser.getRole();
  
             // Wrap old request by a new Request with userName and Roles information.
-            wrapRequest = new UserRoleRequestWrapper(userName, roles, request);
+            wrapRequest = new UserRoleRequestWrapper(userName, role, request);
         }
  
         // Pages must be signed in.
