@@ -1,8 +1,6 @@
 package filter;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -38,7 +36,7 @@ public class SecurityFilter implements Filter {
         // User information stored in the Session.
         // (After successful login).
         UserAccount loginedUser = AppUtils.getLoginedUser(request.getSession());
- 
+        System.out.println("Security Filter");
         if (servletPath.equals("/login")) {
             chain.doFilter(request, response);
             return;

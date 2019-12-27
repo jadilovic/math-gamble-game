@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/registeredTask")
-public class RegisteredTaskServlet extends HttpServlet {
+@WebServlet("/mathGame")
+public class MathGameServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
  
-   public RegisteredTaskServlet() {
+   public MathGameServlet() {
       super();
    }
  
@@ -23,7 +23,7 @@ public class RegisteredTaskServlet extends HttpServlet {
  
       RequestDispatcher dispatcher //
             = this.getServletContext()//
-                  .getRequestDispatcher("/WEB-INF/views/registeredTaskView.jsp");
+                  .getRequestDispatcher("/WEB-INF/views/mathGameView.jsp");
  
       dispatcher.forward(request, response);
    }
@@ -34,5 +34,4 @@ public class RegisteredTaskServlet extends HttpServlet {
  
       doGet(request, response);
    }
- 
 }

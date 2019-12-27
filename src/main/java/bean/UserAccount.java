@@ -15,7 +15,7 @@ public class UserAccount {
 	 
 	   }
 	 
-	   public UserAccount(String userName, String password, String gender, String role, int points) {
+	   public UserAccount(String userName, String gender, String password, String role, int points) {
 	      this.userName = userName;
 	      this.password = password;
 	      this.gender = gender;

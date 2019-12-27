@@ -46,7 +46,7 @@ public class UserManager {
 			return listOfUsers;
 		}
 
-		public static UserAccount getUser(String userName) throws SQLException {
+		public UserAccount getUser(String userName) throws SQLException {
 			// new user object
 			UserAccount user = null;
 			// create an SELECT SQL query
@@ -88,7 +88,7 @@ public class UserManager {
 					statement.setString(2, gender);
 					statement.setString(3, password);
 					statement.setString(4, role);
-					
+					statement.setInt(5, points);
 					// execute the query
 					statement.executeUpdate();
 					message = "User " + userName + " added to the database.";	

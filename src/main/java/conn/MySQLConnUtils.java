@@ -10,9 +10,9 @@ public class MySQLConnUtils {
          throws ClassNotFoundException, SQLException {
      // Note: Connection parameters for ClearDB (MySQL) on Heroku.
      String hostName = "us-cdbr-iron-east-05.cleardb.net";
-     String dbName = "heroku_0d5d5551110eea7";
-     String userName = "b71466b7ff9da2";
-     String password = "e5287734";
+     String dbName = "heroku_061def86f42a458";
+     String userName = "bc4270a704c773";
+     String password = "d252df78";
      return getMySQLConnection(hostName, dbName, userName, password);
  }
   

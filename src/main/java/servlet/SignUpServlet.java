@@ -42,7 +42,7 @@ public class SignUpServlet extends HttpServlet {
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         String message = "";
-       
+       System.out.println("TEST");
         Connection conn = MyUtils.getStoredConnection(request);
         UserManager newUser = new UserManager(conn);
         boolean userCreated;
@@ -53,11 +53,15 @@ public class SignUpServlet extends HttpServlet {
 	        if (userCreated) {
 	            message = newUser.getMessage();
 	            request.setAttribute("message", message);
-	            request.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp").forward(request, response);
+	            RequestDispatcher dispatcher //
+                = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
+        dispatcher.forward(request, response);
 	        } else {
 	            message = newUser.getMessage();
 	            request.setAttribute("message", message);
-	            request.getServletContext().getRequestDispatcher("/WEB-INF/views/signUpView.jsp").forward(request, response);
+	            RequestDispatcher dispatcher //
+                = this.getServletContext().getRequestDispatcher("/WEB-INF/views/signUpView.jsp");
+	    dispatcher.forward(request, response);
 	        }
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

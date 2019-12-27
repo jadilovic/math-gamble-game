@@ -24,14 +24,14 @@ public class SecurityConfig {
         // Configure For "GUEST" Role.
         List<String> urlPatterns1 = new ArrayList<String>();
         urlPatterns1.add("/userInfo");
-        urlPatterns1.add("/guestTask");
+        urlPatterns1.add("/mathGame");
         mapConfig.put(ROLE_GUEST_USER, urlPatterns1);
  
         // Configure For "REGISTERED" Role.
         List<String> urlPatterns2 = new ArrayList<String>();
         urlPatterns2.add("/userInfo");
-        urlPatterns2.add("/registeredTask");
-        urlPatterns2.add("/guestTask");
+        urlPatterns2.add("/gambleGame");
+        urlPatterns2.add("/mathGame");
         mapConfig.put(ROLE_REGISTERED_USER, urlPatterns2);
     }
  

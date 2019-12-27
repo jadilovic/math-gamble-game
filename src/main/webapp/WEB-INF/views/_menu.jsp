@@ -7,12 +7,12 @@
 <title>Menu</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/guestTask">
-  Guest Task
+<a href="${pageContext.request.contextPath}/mathGame">
+  Math Game
 </a>
 ||
-<a href="${pageContext.request.contextPath}/registeredTask">
-  Registered User Task
+<a href="${pageContext.request.contextPath}/gambleGame">
+  Gamble Game
 </a>
 ||
 <a href="${pageContext.request.contextPath}/userInfo">
@@ -33,5 +33,6 @@
  
 &nbsp;
 <span style="color:red">[ ${loginedUser.userName} ]</span>
+<span style="color:red">[ ${loginedUser.points} ]</span>
 </body>
 </html>

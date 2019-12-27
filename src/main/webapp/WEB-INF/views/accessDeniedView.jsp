@@ -12,7 +12,7 @@
     
       <br/><br/>
        
-      <h3 style="color:red;">Access Denied!</h3>
+      <h3 style="color:red;">Access Denied! Only Registered Users Can Enter This Area</h3>
            
 </body>
 </html>

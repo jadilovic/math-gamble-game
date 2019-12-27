@@ -14,6 +14,7 @@
       User Name: <b>${loginedUser.userName}</b>
       <br />
       Gender: ${loginedUser.gender } <br />
+      Points: ${loginedUser.points } <br />
  
 </body>
 </html>

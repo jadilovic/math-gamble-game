@@ -1,31 +1,43 @@
 package utils;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
 import bean.UserAccount;
 
-import config.SecurityConfig;
-
 public class DataDAO {
+	
+	// connect to the database
+	private static Connection connection;
+	
+	public DataDAO(Connection conn) {
+		connection = conn;
+	}
 
 	private static final Map<String, UserAccount> mapUsers = new HashMap<String, UserAccount>();
 	 
-	   static {
-	      initUsers();
-	   }
-	 
-	   private static void initUsers() {
-	 
-	      // This user has a role as GUEST.
-	      UserAccount guest = new UserAccount("guest", "123", UserAccount.GENDER_MALE, SecurityConfig.ROLE_GUEST_USER, 0);
-	 
-	      // This user has a role as REGISTERED USER.
-	      UserAccount registered = new UserAccount("registered", "123", UserAccount.GENDER_MALE, //
-	            SecurityConfig.ROLE_REGISTERED_USER, 0);
-	 
-	      mapUsers.put(guest.getUserName(), guest);
-	      mapUsers.put(registered.getUserName(), registered);
+	   public void initUsers() throws SQLException {
+
+		   UserAccount user = null;
+			// create an SELECT SQL query
+			String query = "SELECT * FROM users";
+			// create a new ResultSet
+			ResultSet rs = null;
+			
+			Statement statement = connection.createStatement();
+				// execute the query
+				rs = statement.executeQuery(query);
+				// add users to the arrayList
+				while (rs.next()) {
+					user = new UserAccount(rs.getString("userName"), rs.getString("gender"), 
+					rs.getString("password"), rs.getString("role"), rs.getInt("points"));
+					
+					mapUsers.put(user.getUserName(), user);
+				}
 	   }
 	 
 	   // Find a User by userName and password.
