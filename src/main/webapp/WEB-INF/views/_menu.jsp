@@ -32,7 +32,7 @@
 </a>
  
 &nbsp;
-<span style="color:red">[ ${loginedUser.userName} ]</span>
-<span style="color:red">[ ${loginedUser.points} ]</span>
+<span style="color:red">User:[ ${loginedUser.userName} ]</span>
+<span style="color:red">Points:[ ${loginedUser.points} ]</span>
 </body>
 </html>

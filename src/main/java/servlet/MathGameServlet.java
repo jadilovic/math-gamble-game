@@ -20,7 +20,8 @@ public class MathGameServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
- 
+	   System.out.println("Math Game Servlet");
+	   request.setAttribute("guess", null);
       RequestDispatcher dispatcher //
             = this.getServletContext()//
                   .getRequestDispatcher("/WEB-INF/views/mathGameView.jsp");
