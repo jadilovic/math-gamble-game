@@ -159,6 +159,17 @@ public class UserManager {
 	                && (!name.equals("")) 
 	                && (name.matches("^[a-zA-Z]*$")));
 		}
+
+		public void udatePoints(UserAccount user) throws SQLException {
+			// create an SELECT SQL query
+			String query = "UPDATE users SET points = ? WHERE userName = ?";
+				PreparedStatement statement = connection.prepareStatement(query);
+				// fill in the placeholders/parameters
+				statement.setInt(1, user.getPoints());
+				statement.setString(2, user.getUserName());
+				// execute the query
+				statement.executeUpdate();
+		}
 		
 		// return message
 		public String getMessage() {
