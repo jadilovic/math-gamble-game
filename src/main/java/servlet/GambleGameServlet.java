@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import applets.StartingApplet;
+
 @WebServlet("/gambleGame")
 public class GambleGameServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
@@ -31,8 +33,11 @@ public class GambleGameServlet extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
- 
-      doGet(request, response);
+
+		   StartingApplet sa = new StartingApplet();
+		   sa.init();
+		   sa.start();
+		   sa.run();
    }
  
 }
