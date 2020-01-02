@@ -20,7 +20,6 @@ public class MathGameServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-	   System.out.println("Math Game Servlet");
       RequestDispatcher dispatcher //
             = this.getServletContext()//
                   .getRequestDispatcher("/WEB-INF/views/mathGameView.jsp");
@@ -31,7 +30,11 @@ public class MathGameServlet extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
- 
-      doGet(request, response);
+	   String selection = request.getParameter("Selection");
+	      RequestDispatcher dispatcher //
+          = this.getServletContext()//
+                .getRequestDispatcher("/WEB-INF/views/game" + selection + "View.jsp");
+
+    dispatcher.forward(request, response);
    }
 }
