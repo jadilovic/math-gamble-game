@@ -7,18 +7,14 @@ public class Race {
 	Dog[] dogs = new Dog[4];
 	
 	public Race() {
-		dogs[0] = new Dog("first", x1);
-		dogs[1] = new Dog("second", x2);
-		dogs[2] = new Dog("third", x3);
-		dogs[3] = new Dog("fourth", x4);
+		dogs[0] = new Dog("Blue", x1);
+		dogs[1] = new Dog("Red", x2);
+		dogs[2] = new Dog("Yellow", x3);
+		dogs[3] = new Dog("Green", x4);
 	}
 
 	public String getWinner() {
 		return winner;
-	}
-
-	public void setWinner(String winner) {
-		this.winner = winner;
 	}
 
 	public void run() {
