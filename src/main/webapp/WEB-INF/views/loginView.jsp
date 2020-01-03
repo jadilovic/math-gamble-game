@@ -8,11 +8,11 @@
 </head>
 <body>
  
-      <jsp:include page="_menu.jsp"></jsp:include>   
+<jsp:include page="_menu.jsp"></jsp:include>   
+ 	<div align="center">
+ 		<h3>Login Page</h3>
  
-      <h3>Login Page</h3>
- 
-      <p style="color: red;">${errorMessage}</p>
+      	<p style="color: red;">${errorMessage}</p>
  
       <form method="POST" action="${pageContext.request.contextPath}/login">
          <input type="hidden" name="redirectId" value="${param.redirectId}" />
@@ -37,5 +37,7 @@
  
       <p style="color:blue;">To log in as a guest use User Name: "guest" and Password: "12345678":</p>
       
+ </div>
+     
 </body>
 </html>

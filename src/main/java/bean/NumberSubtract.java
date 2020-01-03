@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.io.Serializable;
   
 // NumberGuessBean, with session scope, for storing game data.
-public class NumberGuess implements Serializable {
+public class NumberSubtract implements Serializable {
   
 	private static final long serialVersionUID = -562120166622213951L;
 
@@ -19,7 +19,7 @@ private int num1; // random number 1
    private Random random;    // random number generator
   
    // Constructor
-   public NumberGuess() {
+   public NumberSubtract() {
       random = new Random(); // Init the random number generator
       reset();
    }
@@ -29,7 +29,12 @@ private int num1; // random number 1
       // Generate a random int between 1 to 100, uniformly distributed.
 	   num1 = (random.nextInt(100) + 1);
 	   num2 = (random.nextInt(100) + 1);
-      answer = num1 + num2;
+	   if(num2 >= num1) {
+		   int temp = num1;
+		   num1 = num2;
+		   num2 = temp;
+	   }
+      answer = num1 - num2;
       answers[0] = answer;
       answers[1] = answer + 2;
       answers[2] = answer - 2;

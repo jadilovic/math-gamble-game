@@ -8,7 +8,7 @@ public class Race {
 	
 	public Race() {
 		dogs[0] = new Dog("first", x1);
-		dogs[1]= new Dog("second", x2);
+		dogs[1] = new Dog("second", x2);
 		dogs[2] = new Dog("third", x3);
 		dogs[3] = new Dog("fourth", x4);
 	}

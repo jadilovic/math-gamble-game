@@ -9,12 +9,14 @@
 <body>
      <jsp:include page="_menu.jsp"></jsp:include>
  
-      <h3>Hello: ${loginedUser.userName}</h3>
+ <div align="center">
+      <h3>Hello: ${loginedUser.userName}, welcome to Math Gamble Game</h3>
  
-      User Name: <b>${loginedUser.userName}</b>
-      <br />
-      Gender: ${loginedUser.gender } <br />
-      Points: ${loginedUser.points } <br />
+      User Name: <b>${loginedUser.userName}</b><br />
+      Gender: <b>${loginedUser.gender } </b><br />
+      Points: <b>${loginedUser.points } </b><br />
+ </div>
+
  
 </body>
 </html>
