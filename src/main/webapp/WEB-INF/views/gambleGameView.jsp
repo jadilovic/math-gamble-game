@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-  <%@page import = "bean.Race" %>
-	<jsp:useBean id="raceDog" class="bean.Race" scope="session" />
-	<jsp:useBean id="points" class="bean.UserAccount" scope="session" />
+
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +10,7 @@
 <title>Gamble Game</title>
 </head>
 <body>
-	<jsp:setProperty name="raceDog" property="*"/>
+
     <jsp:include page="_menu.jsp"></jsp:include>
        
     <div align="center" >
@@ -37,10 +35,6 @@
      	<p>Congratulations!  You selected a winner: ${param.selection}</p>
      	<p>You scored 4 points</p>
   		${loginedUser.addFourPoints()}
-  		<% request.setAttribute("selection", null); %>
-  			<form action="${pageContext.request.contextPath}/gambleGame" method="get">
- 				<input type="submit" value="Play Again" />
-			</form>
 	</c:if>  
       
 	<c:if test="${selection != null && !winner.equals(selection)}">  
@@ -49,11 +43,15 @@
     	<p>You selected: ${param.selection}</p>
     	<p>You lose 1 point</p>
     	${loginedUser.losePoints()}
+	</c:if>  
+       
+    <c:if test="${selection != null}">  
     	<% request.setAttribute("selection", null); %>
   			<form action="${pageContext.request.contextPath}/gambleGame" method="get">
- 				<input type="submit" value="Try Again" />
+  				<input type="hidden" name="updatePoints" value="update" >
+ 				<input type="submit" value="Play Again" />
 			</form>
-	</c:if>  
+	</c:if> 
        
     </div>
     

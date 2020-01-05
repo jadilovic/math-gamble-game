@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.Race;
+import utils.PointsToDatabase;
 
 @WebServlet("/gambleGame")
 public class GambleGameServlet extends HttpServlet {
@@ -22,6 +24,13 @@ public class GambleGameServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
+	   
+	   String updatePoints = request.getParameter("updatePoints");
+	   		if(updatePoints != null) {
+	   			PointsToDatabase pd = new PointsToDatabase(request);
+	   			pd.toDatabase();
+	   			}
+	   
       RequestDispatcher dispatcher //
             = this.getServletContext()//
                   .getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
@@ -37,7 +46,7 @@ public class GambleGameServlet extends HttpServlet {
 	   String winner = rdRace.getWinner();
 	   System.out.println(winner);
 	   request.setAttribute("winner", winner);
-	      
+
 	   RequestDispatcher dispatcher //
           = this.getServletContext()//
                 .getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
