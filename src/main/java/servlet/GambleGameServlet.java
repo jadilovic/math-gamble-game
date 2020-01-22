@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import bean.Race;
 import utils.PointsToDatabase;
@@ -49,7 +48,8 @@ public class GambleGameServlet extends HttpServlet {
 
 	   RequestDispatcher dispatcher //
           = this.getServletContext()//
-                .getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
+                //.getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
+			.getRequestDispatcher("/JNLPExample.jnlp");
     dispatcher.forward(request, response);
    }
  

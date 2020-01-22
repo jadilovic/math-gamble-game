@@ -29,6 +29,7 @@
     			Dog x3: <input type="submit" name="selection" value="Yellow"/><br/>
     			Dog x4: <input type="submit" name="selection" value="Green"/><br/>
   		</form>
+  		<a href="${pageContext.request.contextPath}src/main/webapp/WEB-INF/JNLPExample.jnlp">Start Dog Race</a>
 	</c:if>   
 
 	<c:if test="${selection != null && winner.equals(selection)}">  
