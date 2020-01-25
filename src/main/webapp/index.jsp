@@ -11,7 +11,6 @@
 <div align="center" class="container">
 <h2>Welcome to MathGame Web Application</h2>
 <h4><a type="button" class="btn btn-warning" href="/home">Click Here Home Page</a></h4>
-<h4><a type="button" class="btn btn-success" href="/JNLPExample.jnlp">JNLP</a></h4>
 <p>Current Time: <%= java.util.Calendar.getInstance().getTime() %> </p>
 
 </div>

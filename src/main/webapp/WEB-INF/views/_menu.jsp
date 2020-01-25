@@ -8,7 +8,7 @@
 </head>
 <body>
 <div align="center" >
-<a href="${pageContext.request.contextPath}/mathGame">
+<a class="btn btn-primary" href="${pageContext.request.contextPath}/mathGame" role="button">
   Math Game
 </a>
  ||

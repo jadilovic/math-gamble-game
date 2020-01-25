@@ -29,6 +29,8 @@ public class GambleGameServlet extends HttpServlet {
 	   			PointsToDatabase pd = new PointsToDatabase(request);
 	   			pd.toDatabase();
 	   			}
+	   		
+	   		
 	   
       RequestDispatcher dispatcher //
             = this.getServletContext()//
@@ -40,16 +42,15 @@ public class GambleGameServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
 	   
-	   Race rdRace = new Race();
-	   rdRace.run();
-	   String winner = rdRace.getWinner();
+	   Race race = new Race();
+	   race.run();
+	   String winner = race.getWinner();
 	   System.out.println(winner);
 	   request.setAttribute("winner", winner);
-
+	   
 	   RequestDispatcher dispatcher //
           = this.getServletContext()//
-                //.getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
-			.getRequestDispatcher("/JNLPExample.jnlp");
+                .getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
     dispatcher.forward(request, response);
    }
  
