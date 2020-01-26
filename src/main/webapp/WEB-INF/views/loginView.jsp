@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color:powderblue;">
  
 <jsp:include page="_menu.jsp"></jsp:include>   
  	<div align="center">
- 		<h3>Login Page</h3>
- 
-      	<p style="color: red;">${errorMessage}</p>
+
+          <div class="p-3 bg-success text-dark">
+         	 <h3>Login Page</h3>
+         </div> 
+      	<p style="color: red;"><b>${errorMessage}</b></p>
  
       <form method="POST" action="${pageContext.request.contextPath}/login">
          <input type="hidden" name="redirectId" value="${param.redirectId}" />
@@ -28,16 +30,17 @@
                <td><input type="password" name="password" value= "${user.password}" /> </td>
             </tr>
           
-            <tr>
+            <tr align="center" >
                <td colspan ="2">
-                  <input type="submit" value= "Submit" />
-                  <a href="${pageContext.request.contextPath}/">Cancel</a>
+                  <input class="btn btn-success" type="submit" value= "Submit" />
+                  <a class="btn btn-danger" href="${pageContext.request.contextPath}/">Cancel</a>
                </td>
             </tr>
          </table>
       </form>
- 
-      <p style="color:blue;">To log in as a guest use User Name: "guest" and Password: "12345678":</p>
+ 	<div class="p-3 mb-2 bg-warning" >
+ 		<p style="color:blue;">To log in as a guest use User Name: "guest" and Password: "12345678":</p>
+ 	</div>
       
  </div>
      

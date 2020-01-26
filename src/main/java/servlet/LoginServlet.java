@@ -41,6 +41,14 @@ public class LoginServlet extends HttpServlet {
     	String errorMessage = "";
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
+        if(userName.equals("") || password.equals("")) {
+    		errorMessage = "Please enter user name and password.";
+            request.setAttribute("errorMessage", errorMessage);
+            RequestDispatcher dispatcher //
+                    = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
         Connection conn = MyUtils.getStoredConnection(request);
         UserManager loginUser = new UserManager(conn);
         UserAccount user = null;
@@ -50,7 +58,7 @@ public class LoginServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
-        System.out.println("User password: " + user.getPassword());
+        //System.out.println("User password: " + user.getPassword());
         
         if(user != null) {
             if(user.getPassword().equals(password)) {
@@ -62,7 +70,10 @@ public class LoginServlet extends HttpServlet {
                 }
         		errorMessage = "Invalid password";
             }
-    		errorMessage = "Invalid userName";
+        else {
+        		errorMessage = "Invalid userName";
+        }
+
             request.setAttribute("errorMessage", errorMessage);
             RequestDispatcher dispatcher //
                     = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");

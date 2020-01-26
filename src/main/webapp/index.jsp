@@ -11,12 +11,12 @@
 
 </head>
 <body style="background-color:powderblue;">
-<div align="center" class="container">
-<h2>Welcome to MathGame Web Application</h2>
-<h4><a type="button" class="btn btn-warning" href="/home">Click Here To Play</a></h4>
-<p>Current Time: <%= java.util.Calendar.getInstance().getTime() %> </p>
 
-</div>
+	<div align="center" class="container">
+		<h2>Welcome to MathGame Web Application</h2>
+		<h3><a type="button" class="btn btn-warning" href="/home"><b>Click Here To Play</b></a></h3>
+		<p>Game Time: <%= java.util.Calendar.getInstance().getTime() %> </p>
+	</div>
 
 </body>
 </html>
