@@ -14,7 +14,7 @@
 
 	<div align="center" class="container">
 		<h2>Welcome to MathGame Web Application</h2>
-		<h3><a type="button" class="btn btn-warning" href="/home"><b>Click Here To Play</b></a></h3>
+		<h3><a type="button" class="btn btn-warning btn-lg" href="/home"><b>Click Here To Play</b></a></h3>
 		<p>Game Time: <%= java.util.Calendar.getInstance().getTime() %> </p>
 	</div>
 
