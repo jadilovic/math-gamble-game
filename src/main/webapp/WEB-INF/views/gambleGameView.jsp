@@ -1,46 +1,93 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Gamble Game</title>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/326e4a206d.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background-color:powderblue;">
 
-    <jsp:include page="_menu.jsp"></jsp:include>
+    <jsp:include page="_menuLoged.jsp"></jsp:include>
        
     <div align="center" >
-    <h3>Gamble Game</h3>
-    <p>Welcome to the Dog Race game.</p>
-      
+    	<div class="p-2 bg-warning text-dark">
+    		<h4>Gamble Game</h4>
+    	</div>
+
     <c:set var="selection" scope="session" value="${param.selection}"/>  
-    <c:set var="winner" scope="session" value="${param.winner}"/>  
-    
+    <c:set var="winner" scope="session" value="${param.winner}"/>
+    <c:set var="dogs" scope="session" value="${param.dogs}" />  
+    <c:set var="num" scope="page" value="0" />
+
 	<c:if test="${selection == null}">  
   			<%-- Putting up the form to get the user selection  --%>
   		<form action="${pageContext.request.contextPath}/gambleGame" method="post">
-    		<p>Select who will win the race!</p>
-    			Dog x1: <input type="submit" name="selection" value="Blue"/><br/>
-   				Dog x2: <input type="submit" name="selection" value="Red"/><br/>
-    			Dog x3: <input type="submit" name="selection" value="Yellow"/><br/>
-    			Dog x4: <input type="submit" name="selection" value="Green"/><br/>
+  			<div class="p-2 bg-success text-dark">
+    			<h5>Click to Pick the Winning Dog in the Race!</h5>
+    		</div>
+    			<i class="fas fa-dog fa-2x"></i>
+    			<input class="btn btn-secondary font-weight-bold" type="submit" name="selection" value="Akitas"/><br/>
+    			<i class="fas fa-dog fa-2x"></i>
+   				<input class="btn btn-secondary font-weight-bold" type="submit" name="selection" value="Bulterrier"/><br/>
+   				<i class="fas fa-dog fa-2x"></i>
+    			<input class="btn btn-secondary font-weight-bold" type="submit" name="selection" value="Corgi"/><br/>
+    			<i class="fas fa-dog fa-2x"></i>
+    			<input class="btn btn-secondary font-weight-bold" type="submit" name="selection" value="Husky"/><br/>
   		</form>
 	</c:if>   
 
 	<c:if test="${selection != null && winner.equals(selection)}">  
-     	<p>Congratulations!  You selected a winner: ${param.selection}</p>
+		 <div class="p-2 bg-info text-dark">
+     		<p><h4>Congratulations!  You selected a winner: ${param.selection}</h4></p>
+     		<table class="table table-sm table-dark">
+        		<tr>
+        			<th>Place</th>
+          			<th>Dog</th>
+          			<th>Speed</th>
+        		</tr>
+        	<c:forEach  items="${dogs}" var ="dog">
+        		<c:set var="num" value="${num + 1}" scope="page"/>
+        		<tr>
+        			<td>${num}</td>
+          			<td>${dog.getName()}</td>
+          			<td>${dog.getNum()}</td>
+       		 	</tr>
+        	</c:forEach>
+      </table>
+    </div>
      	<p>You scored 4 points</p>
   		${loginedUser.addFourPoints()}
 	</c:if>  
       
-	<c:if test="${selection != null && !winner.equals(selection)}">  
-    	<p>You did not select a winner.</p>
-    	<p>Winner is: <c:out value="${winner}"/></p>
-    	<p>You selected: ${param.selection}</p>
-    	<p>You lose 1 point</p>
+	<c:if test="${selection != null && !winner.equals(selection)}">
+		<div class="p-1 bg-danger text-white">  
+    		<p>You did not select a winner. You selected:<strong> ${param.selection}</strong>. You lose 1 point</p>
+    	</div>
+    	<p><strong>Winner is: <c:out value="${winner}"/></strong></p>
+    	
+    	<table class="table table-sm table-dark">
+        		<tr>
+        		    <th>Place</th>
+          			<th>Dog</th>
+          			<th>Speed</th>
+        		</tr>
+        	<c:forEach  items="${dogs}" var ="dog">
+        		<c:set var="num" value="${num + 1}" scope="page"/>
+        		<tr>
+        			<td>${num}</td>
+          			<td>${dog.getName()}</td>
+          			<td>${dog.getNum()}</td>
+       		 	</tr>
+        	</c:forEach>
+      </table>
     	${loginedUser.losePoints()}
 	</c:if>  
        
@@ -48,7 +95,7 @@
     	<% request.setAttribute("selection", null); %>
   			<form action="${pageContext.request.contextPath}/gambleGame" method="get">
   				<input type="hidden" name="updatePoints" value="update" >
- 				<input type="submit" value="Play Again" />
+ 				<input class="btn btn-primary font-weight-bold" type="submit" value="Play Again" />
 			</form>
 	</c:if> 
        

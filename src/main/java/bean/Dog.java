@@ -1,6 +1,6 @@
 package bean;
 
-public class Dog {
+public class Dog implements Comparable<Dog>{
 
 	private String name;
 	private int num;
@@ -24,6 +24,13 @@ public class Dog {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	@Override
+	public int compareTo(Dog compareDog) {
+		int compareSpeed = ((Dog) compareDog).getNum();
+		
+		return compareSpeed - this.num;
 	}
 	
 	

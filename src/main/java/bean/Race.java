@@ -1,16 +1,19 @@
 package bean;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Race {
 
 	private String winner;
 	int x1, x2, x3, x4;
-	Dog[] dogs = new Dog[4];
+	public Dog[] dogs = new Dog[4];
 	
 	public Race() {
-		dogs[0] = new Dog("Blue", x1);
-		dogs[1] = new Dog("Red", x2);
-		dogs[2] = new Dog("Yellow", x3);
-		dogs[3] = new Dog("Green", x4);
+		dogs[0] = new Dog("Akitas", x1);
+		dogs[1] = new Dog("Bulterrier", x2);
+		dogs[2] = new Dog("Corgi", x3);
+		dogs[3] = new Dog("Huski", x4);
 	}
 
 	public String getWinner() {
@@ -34,12 +37,14 @@ public class Race {
 		}
 		
 		int winnerNum = max(x1, x2, x3, x4);
+		
 		for(int i = 0; i < dogs.length; i++) {
 			if(winnerNum == dogs[i].getNum())
 				winner = dogs[i].getName();
-		}
+			}
+		
+		Arrays.sort(dogs);
 	}
-
 
 	private int max(int x1, int x2, int x3, int x4) {
 		int[] results = {x1, x2, x3, x4};

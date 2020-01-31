@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-			<jsp:useBean id="numguess" class="bean.NumberGuess" scope="session" />
+           <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+			<jsp:useBean id="numguess" class="bean.NumberDivision" scope="session" />
 			<jsp:useBean id="points" class="bean.UserAccount" scope="session" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Addition Game</title>
+<title>Division Game</title>
 	    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="HandheldFriendly" content="true">
@@ -19,7 +19,7 @@
        
     <div align="center" >
         <div class="p-2 bg-warning text-dark">
-         	 <h4>Addition Game</h4>
+         	 <h4>Division Game</h4>
         </div> 
         
 			<c:if test="${numguess.getNumGuesses() != 0 && !numguess.isSuccess()}">
@@ -32,10 +32,10 @@
         <c:if test="${!numguess.isSuccess()}">
         	  <%-- Putting up the form to get the user guess  --%>
         	  <div class="p-2 bg-success text-dark">
-        	  	  <p><h5>How much is <%= numguess.getNum1() %> + <%= numguess.getNum2() %> ?</h5><p>
+        	  	  <p><h5>How much is <%= numguess.getNum1() %> / <%= numguess.getNum2() %> ?</h5><p>
         	  </div>
 				<form action="${pageContext.request.contextPath}/mathGame" method="post">
-					<input type="hidden" name="Selection" value="Addition" />
+					<input type="hidden" name="Selection" value="Division" />
 					<input class="btn btn-primary font-weight-bold" type="submit" name="guess" value="${numguess.getAnswer0()}" />
  					|| 
  					<input class="btn btn-primary font-weight-bold" type="submit" name="guess" value="${numguess.getAnswer1()}" />
@@ -54,7 +54,7 @@
   				<% numguess.reset(); %>
   				${loginedUser.addPoints()}
   			<form action="${pageContext.request.contextPath}/mathGame" method="post">
-				<input type="hidden" name="Selection" value="Addition" />
+				<input type="hidden" name="Selection" value="Division" />
 				<input type="hidden" name="guess" value="" />
  				<input class="btn btn-success" type="submit" value="Try Again" />
 			</form>

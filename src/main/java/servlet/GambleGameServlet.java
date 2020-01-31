@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Dog;
 import bean.Race;
 import utils.PointsToDatabase;
 
@@ -29,8 +30,6 @@ public class GambleGameServlet extends HttpServlet {
 	   			PointsToDatabase pd = new PointsToDatabase(request);
 	   			pd.toDatabase();
 	   			}
-	   		
-	   		
 	   
       RequestDispatcher dispatcher //
             = this.getServletContext()//
@@ -45,9 +44,10 @@ public class GambleGameServlet extends HttpServlet {
 	   Race race = new Race();
 	   race.run();
 	   String winner = race.getWinner();
+	   Dog[] dogs = race.dogs;
 	   System.out.println(winner);
 	   request.setAttribute("winner", winner);
-	   
+	   request.setAttribute("dogs", dogs);
 	   RequestDispatcher dispatcher //
           = this.getServletContext()//
                 .getRequestDispatcher("/WEB-INF/views/gambleGameView.jsp");
