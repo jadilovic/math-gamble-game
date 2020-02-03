@@ -25,7 +25,6 @@
     <c:set var="selection" scope="session" value="${param.selection}"/>  
     <c:set var="winner" scope="session" value="${param.winner}"/>
     <c:set var="dogs" scope="session" value="${param.dogs}" />  
-    <c:set var="num" scope="page" value="0" />
 
 	<c:if test="${selection == null}">  
   			<%-- Putting up the form to get the user selection  --%>

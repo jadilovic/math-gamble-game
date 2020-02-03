@@ -9,6 +9,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="HandheldFriendly" content="true">
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	 <style> 
+            .gfg { 
+                border-collapse:separate; 
+                border-spacing:0 15px; 
+            } 
+        </style> 
 </head>
 <body style="background-color:powderblue;">
  
@@ -22,7 +28,7 @@
  
       <form method="POST" action="${pageContext.request.contextPath}/login">
          <input type="hidden" name="redirectId" value="${param.redirectId}" />
-         <table border="0">
+         <table class="gfg" border="0">
             <tr>
                <td>User Name</td>
                <td><input type="text" name="userName" value= "${user.userName}" /> </td>
