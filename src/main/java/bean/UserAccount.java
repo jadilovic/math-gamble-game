@@ -68,8 +68,8 @@ public class UserAccount {
 		this.points++;
 	}
 	
-	public void addFourPoints() {
-		this.points += 4;
+	public void addThreePoints() {
+		this.points += 3;
 	}
 	
 	public void losePoints() {

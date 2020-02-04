@@ -45,7 +45,7 @@
 
 	<c:if test="${selection != null && winner.equals(selection)}">  
 		 <div class="p-2 bg-info text-white">
-     		<p><h5>Congratulations!  You selected a winner: <strong>${param.selection}</strong>. You scored 4 points.</h5></p>
+     		<p><h5>Congratulations!  You selected a winner: <strong>${param.selection}</strong>. You scored 3 points.</h5></p>
      		<table class="table table-sm table-dark">
         		<tr>
         			<th>Place</th>
@@ -62,7 +62,7 @@
         	</c:forEach>
       </table>
     </div>
-  		${loginedUser.addFourPoints()}
+  		${loginedUser.addThreePoints()}
 	</c:if>  
       
 	<c:if test="${selection != null && !winner.equals(selection)}">
